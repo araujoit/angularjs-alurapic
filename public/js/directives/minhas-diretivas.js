@@ -57,14 +57,14 @@ angular.module('minhasDiretivas', [])
             // ... e é somente nessa função que podemos atribuir observadores ($watchers)
             // ... que são executados sempre que o valor da propriedade observada mudar.
             ddo.link = function(scopeController, element) {
-                // O custo computacional de um $watcher é alto. Então sempre que possível optar por outra solução.
-                scopeController.$watch('focado', function() {
-                    // executado toda vez que o valor mudar
-                    if (scopeController.focado) {
-                        // se mudou pra verdadeiro, o elemento deve ganhar o foco
-                        element[0].focus();
-                        scopeController.focado = false;
-                    }
+                // O custo computacional de um $watcher é alto. 
+                // ... então sempre que possível optar por outra solução.
+                // ... aqui foi alterado pelo event bus do angular
+                
+                scopeController.$on('fotoCadastrada', function() {
+                    // se mudou pra verdadeiro, o elemento deve ganhar o foco
+                    // o jqLite não possui a função focus então é utilizada a função existente no DOM.
+                    element[0].focus();
                 });
             };
             return ddo;
