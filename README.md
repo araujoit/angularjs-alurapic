@@ -1,3 +1,7 @@
-# Alurapic
+# AluraPic
+SPA desenvolvida em AngularJS
 
-Projeto em andamento
+## SPA
+Single
+Page
+Application
