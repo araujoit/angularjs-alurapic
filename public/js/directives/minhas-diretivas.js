@@ -45,4 +45,27 @@ angular.module('minhasDiretivas', [])
             };
             ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao()">{{nome}}</button>';
             return ddo;
+        })
+        .directive('meuFocus', function() {
+            var ddo = {};
+            ddo.restrict = "A";
+            ddo.scope = {
+                focado: '='
+            };
+            // Toda diretiva angular passa por duas fases: compile e link
+            // ... o retorno da fase compile sempre devolve uma função de link,
+            // ... e é somente nessa função que podemos atribuir observadores ($watchers)
+            // ... que são executados sempre que o valor da propriedade observada mudar.
+            ddo.link = function(scopeController, element) {
+                // O custo computacional de um $watcher é alto. Então sempre que possível optar por outra solução.
+                scopeController.$watch('focado', function() {
+                    // executado toda vez que o valor mudar
+                    if (scopeController.focado) {
+                        // se mudou pra verdadeiro, o elemento deve ganhar o foco
+                        element[0].focus();
+                        scopeController.focado = false;
+                    }
+                });
+            };
+            return ddo;
         });

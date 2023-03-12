@@ -2,7 +2,7 @@
  * Módulo principal
  */
 angular
-    .module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
+    .module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'meusServicos'])
     .config(function($routeProvider, $locationProvider) {
 
         // Habilitando a History API do HTML5, ao invés da rota padrão do AngularJS (/#/fotos)
