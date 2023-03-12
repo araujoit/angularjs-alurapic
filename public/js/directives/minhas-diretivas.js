@@ -18,4 +18,21 @@ angular.module('minhasDiretivas', [])
             ddo.templateUrl = 'js/directives/meu-painel.html';
 
             return ddo;
+        })
+        .directive('minhaFoto', function() {
+            var ddo = {};
+
+            ddo.restrict = "AE";
+
+            ddo.transclude = false;
+
+            ddo.scope = {
+                url: '@',
+                titulo: '@'
+            };
+
+            // Utilizada a diretiva ng-src no lugar de src, para evitar a geração de mensagens estranhas no console do navegador (devido a politica agressiva do browser no carregamento de imagens).
+            ddo.template = '<img class="img-responsive center-block" ng-src="{{url}}" alt="{{titulo}}">';
+
+            return ddo;
         });
