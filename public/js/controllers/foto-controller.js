@@ -20,7 +20,6 @@ angular.module('alurapic')
                         if (dados.inclusao) {
                             $scope.foto = {};
                         }
-                        $scope.$broadcast('fotoCadastrada');
                     })
                     .catch(function(erro) {
                         $scope.mensagem = erro.mensagem;

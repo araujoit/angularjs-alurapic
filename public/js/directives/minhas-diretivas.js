@@ -60,9 +60,7 @@ angular.module('minhasDiretivas', [])
                 // O custo computacional de um $watcher é alto. 
                 // ... então sempre que possível optar por outra solução.
                 // ... aqui foi alterado pelo event bus do angular
-                
                 scopeController.$on('fotoCadastrada', function() {
-                    // se mudou pra verdadeiro, o elemento deve ganhar o foco
                     // o jqLite não possui a função focus então é utilizada a função existente no DOM.
                     element[0].focus();
                 });
